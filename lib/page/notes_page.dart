@@ -73,16 +73,7 @@ class _NotesPageState extends State<NotesPage> {
         itemBuilder: (context, index) {
           final note = notes[index];
 
-          return
-              // GestureDetector(
-              //   onTap: () async {
-              //     await Navigator.of(context).push(MaterialPageRoute(
-              //       builder: (context) => NoteDetailPage(noteId: note.id!),
-              //     ));
-
-              //     refreshNotes();
-              //   },
-              Card(
+          return Card(
             margin: EdgeInsets.all(10),
             color: Colors.white,
             child: Container(
@@ -105,34 +96,14 @@ class _NotesPageState extends State<NotesPage> {
                   ],
                 ),
                 trailing: IconButton(
-                    onPressed: () async {
-                      await NotesDatabase.instance.delete(note.id);
-                      refreshNotes();
-                    },
-                    icon: Icon(Icons.delete)),
+                  onPressed: () async {
+                    await NotesDatabase.instance.delete(note.id);
+                    refreshNotes();
+                  },
+                  icon: Icon(Icons.delete_forever_rounded, color: Colors.red),
+                ),
               ),
-              // Column(
-              //   mainAxisSize: MainAxisSize.min,
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     // Text(
-              //     //   time,
-              //     //   style: TextStyle(color: Colors.grey.shade700),
-              //     // ),
-              //     SizedBox(height: 4),
-              //     Text(
-              //       note.title,
-              //       style: TextStyle(
-              //         color: Colors.black,
-              //         fontSize: 20,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ),
-            // ),
-            // NoteCardWidget(note: note, index: index),
           );
         },
       );

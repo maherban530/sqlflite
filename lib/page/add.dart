@@ -83,89 +83,41 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
                         SizedBox(height: 10),
 
                         DropdownButton(
-                          key: Key("Country"),
-                          hint: Text('Please choose a Country'),
-                          value: _selectedLocation,
-                          onChanged: (newValue) {
+                          hint: Text("select State"),
+                          value: selectstateid,
+                          onChanged: (value) {
                             setState(() {
-                              _CountryState.forEach((k, v) {
-                                print("${k} and ${v}");
-                                _state.clear();
-                                if (v == newValue) {
-                                  _state.add(k);
-                                }
-                              });
-                              _selectedLocation = newValue;
+                              selectstateid = value;
                             });
                           },
-                          items: _locations.map((location) {
-                            return DropdownMenuItem(
-                              child: new Text(location),
-                              value: location,
-                            );
-                          }).toList(),
+                          items: animationList.map(
+                            (item) {
+                              return DropdownMenuItem(
+                                value: item.stateid,
+                                child: new Text(item.statename),
+                              );
+                            },
+                          ).toList(),
                         ),
-                        // DropdownButton(
-                        //   hint: Text("select State"),
-                        //   value: selectstateid,
-                        //   onChanged: (value) {
-                        //     setState(() {
-                        //       selectstateid = value;
-                        //       _CountryState.forEach((k,v){
-                        //     print("${k} and ${v}" );
-                        //     _state.clear();
-                        //     if(v==newValue){
-                        //       _state.add(k);
-                        //     }
-                        //     });
-                        //   },
-                        //   items: animationList.map(
-                        //     (item) {
-                        //       return DropdownMenuItem(
-                        //         value: item.stateid,
-                        //         child: new Text(item.statename),
-                        //       );
-                        //     },
-                        //   ).toList(),
-                        // ),
-                        ///////////
-                        Column(
-                          children: [
-                            DropdownButton(
-                              key: Key("state"),
-                              hint: Text('Please choose a State'),
-                              value: _selectedState,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  _selectedState = newValue;
-                                });
-                              },
-                              items: _state.map((location) {
-                                return DropdownMenuItem(
-                                  child: new Text(location),
-                                  value: location,
-                                );
-                              }).toList(),
-                            ),
-                          ],
+                        /////////
+
+                        DropdownButton(
+                          hint: Text("select District"),
+                          value: selectdistrictid,
+                          onChanged: (value) {
+                            setState(() {
+                              selectdistrictid = value;
+                            });
+                          },
+                          items: district.map(
+                            (it) {
+                              return DropdownMenuItem(
+                                value: it.districtid,
+                                child: new Text(it.districtname),
+                              );
+                            },
+                          ).toList(),
                         ),
-                        // DropdownButton(
-                        //   hint: Text("select District"),
-                        //   value: selectdistrictid,
-                        //   onChanged: (value) {
-                        //     setState(() {
-                        //       selectdistrictid = value;
-                        //     });
-                        //   },
-                        //   items: district.map(
-                        //     (it) {
-                        //       return DropdownMenuItem(
-                        //         value: it.districtid,
-                        //         child: new Text(it.districtname),
-                        //       );
-                        //     },
-                        //   ).toList(),
-                        // ),
                       ],
                     ),
                   ),
