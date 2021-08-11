@@ -21,20 +21,6 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
   int selectstateid;
   int selectdistrictid;
 
-  List<String> _locations = ['A', 'B', 'C', 'D']; // Option 2
-  Map<String, String> _CountryState = {
-    "aa": "A",
-    "aaa": "A",
-    "BBB": "B",
-    "BB": "B",
-    "CC": "D",
-    "DDD": "D",
-    "hh": "D"
-  };
-  List<String> _state = [];
-  String _selectedLocation;
-  String _selectedState;
-
   final _formKey = GlobalKey<FormState>();
   // late bool isImportant;
   // late int number;
@@ -126,16 +112,11 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
       );
 
   Widget buildButton() {
-    // final isFormValid = firstname.isNotEmpty && description.isNotEmpty;
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              // onPrimary: Colors.white,
-              // primary: isFormValid ? null : Colors.grey.shade700,
-              ),
+          style: ElevatedButton.styleFrom(),
           onPressed: () async {
             final isValid = _formKey.currentState.validate();
 
@@ -148,10 +129,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
         ),
         SizedBox(width: 10),
         ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              // onPrimary: Colors.white,
-              // primary: isFormValid ? null : Colors.grey.shade700,
-              ),
+          style: ElevatedButton.styleFrom(),
           onPressed: () async {
             Navigator.of(context).pop();
           },
