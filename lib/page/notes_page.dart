@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sql_flite_test/db/notes_database.dart';
 import 'package:sql_flite_test/model/note.dart';
 import 'package:sql_flite_test/page/add.dart';
-import 'package:sql_flite_test/page/note_detail_page.dart';
-import 'package:sql_flite_test/widget/note_card_widget.dart';
 
 class NotesPage extends StatefulWidget {
   @override

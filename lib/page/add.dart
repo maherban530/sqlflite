@@ -50,10 +50,6 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
 
     animationList = allAnimationItems;
     district = allDistrict;
-    // isImportant = widget.note?.isImportant ?? false;
-    // number = widget.note?.number ?? 0;
-    // title = widget.note?.title ?? '';
-    // description = widget.note?.description ?? '';
   }
 
   @override
